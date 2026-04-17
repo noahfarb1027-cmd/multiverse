@@ -11,7 +11,7 @@ export default async function MockDraftPage() {
 
   const { data: players } = await supabase
     .from('players')
-    .select('id, name, position, sport, team, adp')
+    .select('id, name, position, sport, team_name, adp')
     .in('sport', ['NFL', 'MLB', 'NBA', 'NHL'])
     .order('adp', { ascending: true, nullsFirst: false })
 

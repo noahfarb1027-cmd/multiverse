@@ -67,10 +67,10 @@ export default async function PlayerProfilePage({ params }: { params: Promise<{ 
                   <span className={`text-sm font-semibold ${sportColor[sport]}`}>{sport}</span>
                   <span className="text-slate-500">·</span>
                   <span className="badge">{player.position}</span>
-                  {player.team && (
+                  {player.team_name && (
                     <>
                       <span className="text-slate-500">·</span>
-                      <span className="text-slate-300 text-sm">{player.team}</span>
+                      <span className="text-slate-300 text-sm">{player.team_name}</span>
                     </>
                   )}
                 </div>
@@ -153,10 +153,10 @@ export default async function PlayerProfilePage({ params }: { params: Promise<{ 
             <dt className="section-label">Position</dt>
             <dd className="text-white font-medium">{player.position}</dd>
           </div>
-          {player.team && (
+          {player.team_name && (
             <div>
               <dt className="section-label">Real Team</dt>
-              <dd className="text-white font-medium">{player.team}</dd>
+              <dd className="text-white font-medium">{player.team_name}</dd>
             </div>
           )}
           <div>

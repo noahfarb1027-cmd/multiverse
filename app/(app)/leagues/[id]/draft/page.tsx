@@ -31,7 +31,7 @@ export default async function DraftPage({ params }: { params: Promise<{ id: stri
       .order('team_name'),
     supabase
       .from('players')
-      .select('id, name, position, sport, team, adp')
+      .select('id, name, position, sport, team_name, adp')
       .in('sport', ['NFL', 'MLB', 'NBA', 'NHL'])
       .order('adp', { ascending: true }),
   ])

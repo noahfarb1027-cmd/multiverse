@@ -15,7 +15,7 @@ interface Player {
   name: string
   position: string
   sport: string
-  team: string | null
+  team_name: string | null
   adp: number | null
 }
 
@@ -478,7 +478,7 @@ export default function MockDraftRoom({ allPlayers }: Props) {
                 <span className="badge text-xs shrink-0 py-0.5">{player.position}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white truncate">{player.name}</p>
-                  {player.team && <p className="text-xs text-slate-500 truncate">{player.team}</p>}
+                  {player.team_name && <p className="text-xs text-slate-500 truncate">{player.team_name}</p>}
                 </div>
                 {/* Draft button — always visible when it's user's turn */}
                 {isMyTurn ? (

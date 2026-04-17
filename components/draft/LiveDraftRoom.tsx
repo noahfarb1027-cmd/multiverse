@@ -22,7 +22,7 @@ interface Player {
   name: string
   position: string
   sport: string
-  team: string | null
+  team_name: string | null
   adp: number | null
 }
 
@@ -367,7 +367,7 @@ export default function LiveDraftRoom({
                 <span className="badge text-xs shrink-0">{player.position}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white truncate">{player.name}</p>
-                  {player.team && <p className="text-xs text-slate-500 truncate">{player.team}</p>}
+                  {player.team_name && <p className="text-xs text-slate-500 truncate">{player.team_name}</p>}
                 </div>
                 {isMyTurn && !myTeam?.autodraft && (
                   <button
