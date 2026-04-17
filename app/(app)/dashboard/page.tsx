@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Plus, Trophy, Users, TrendingUp, Clock, ArrowUpRight } from 'lucide-react'
+import { Plus, Trophy, Users, TrendingUp, Clock, ArrowUpRight, Zap, Sparkles } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import StatCard from '@/components/ui/StatCard'
 import SportBadge from '@/components/ui/SportBadge'
@@ -46,6 +46,30 @@ export default async function DashboardPage() {
           <Plus size={16} /> New League
         </Link>
       </div>
+
+      {/* Live draft banners */}
+      {teams?.filter((t: any) => t.league?.status === 'drafting').map((t: any) => (
+        <Link key={t.id} href={`/leagues/${t.league.id}/draft`}
+          className="flex items-center gap-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-5 py-3.5 mb-4 hover:bg-emerald-500/15 transition-colors group">
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold text-white">{t.league.name} — Draft is Live!</p>
+            <p className="text-xs text-emerald-400/70">{t.team_name} · Click to join the draft room</p>
+          </div>
+          <Zap size={16} className="text-emerald-400 group-hover:scale-110 transition-transform shrink-0" />
+        </Link>
+      ))}
+
+      {/* Mock draft CTA */}
+      <Link href="/mock-draft"
+        className="flex items-center gap-3 rounded-xl bg-brand/10 border border-brand/20 px-5 py-3.5 mb-6 hover:bg-brand/15 transition-colors group">
+        <Sparkles size={18} className="text-brand shrink-0" />
+        <div className="flex-1">
+          <p className="text-sm font-semibold text-white">Try a Mock Draft</p>
+          <p className="text-xs text-slate-400">Practice drafting all 4 sports against CPU — free, no league needed</p>
+        </div>
+        <ArrowUpRight size={15} className="text-slate-500 group-hover:text-brand-light transition-colors shrink-0" />
+      </Link>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard label="Total Leagues"   value={teams?.length ?? 0}  icon={Users}      accent="text-brand-light" />

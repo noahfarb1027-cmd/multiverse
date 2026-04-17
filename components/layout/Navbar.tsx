@@ -37,9 +37,10 @@ export default function Navbar({ displayName, avatarUrl }: Props) {
 
         <nav className="hidden md:flex items-center gap-1">
           {[
-            { href: '/dashboard', label: 'Dashboard' },
-            { href: '/leagues',   label: 'Leagues' },
-            { href: '/players',   label: 'Players' },
+            { href: '/dashboard',   label: 'Dashboard' },
+            { href: '/leagues',     label: 'Leagues' },
+            { href: '/players',     label: 'Players' },
+            { href: '/mock-draft',  label: 'Mock Draft' },
           ].map(({ href, label }) => (
             <Link
               key={href}

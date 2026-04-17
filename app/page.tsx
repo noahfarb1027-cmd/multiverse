@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Zap, Trophy, ArrowLeftRight, Calendar, Users, ChevronRight, Star } from 'lucide-react'
+import { Zap, Trophy, ArrowLeftRight, Calendar, Users, ChevronRight, Star, Sparkles } from 'lucide-react'
 
 const sports = [
   { name: 'MLB', color: 'from-mlb/20 to-mlb/5', dot: 'bg-mlb', desc: 'Pitching, hitting, saves & more' },
@@ -13,6 +13,11 @@ const features = [
     icon: Calendar,
     title: 'Live Drafts',
     desc: 'Snake drafts with real-time picks, live player stats, and a sleek draft board.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Mock Drafts',
+    desc: 'Practice against CPU opponents. Save your best picks to Mock History.',
   },
   {
     icon: ArrowLeftRight,
@@ -78,8 +83,8 @@ export default function LandingPage() {
             <Link href="/signup" className="btn-primary flex items-center gap-2 text-base px-8 py-3">
               Create your league <ChevronRight size={16} />
             </Link>
-            <Link href="/dashboard" className="btn-secondary text-base px-8 py-3">
-              View demo
+            <Link href="/mock-draft" className="btn-secondary flex items-center gap-2 text-base px-8 py-3">
+              <Sparkles size={16} /> Try Mock Draft
             </Link>
           </div>
         </div>
@@ -107,7 +112,7 @@ export default function LandingPage() {
             <p className="section-label mb-3">Everything you need</p>
             <h2 className="text-3xl font-bold text-white">Built for serious managers</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {features.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="card p-6 flex flex-col gap-4">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/15 text-brand-light">
