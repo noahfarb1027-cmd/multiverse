@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import SportBadge from '@/components/ui/SportBadge'
 import type { Sport } from '@/types/database'
@@ -62,7 +63,9 @@ export default async function PlayersPage({
           <tbody className="divide-y divide-white/[0.03]">
             {players?.map(p => (
               <tr key={p.id} className="hover:bg-white/[0.02]">
-                <td className="px-5 py-3 font-semibold text-white">{p.name}</td>
+                <td className="px-5 py-3 font-semibold text-white">
+                  <Link href={`/players/${p.id}`} className="hover:text-brand-light transition-colors">{p.name}</Link>
+                </td>
                 <td className="px-5 py-3"><SportBadge sport={p.sport as Sport} /></td>
                 <td className="px-5 py-3 text-slate-400">{p.team_name}</td>
                 <td className="px-5 py-3 text-slate-400">{p.position}</td>
